@@ -1,8 +1,12 @@
+import os
 import requests
 import random
 import statistics
 
-API_KEY = "1dea00a509d91ceeeeb7cc359bf8d3e4"  # <-- твоя API ключ
+API_KEY = os.getenv("OWM_API_KEY")
+if not API_KEY:
+    raise SystemExit("Missing OWM_API_KEY. Set it before running (see README).")
+
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 UNITS = "metric"
 
